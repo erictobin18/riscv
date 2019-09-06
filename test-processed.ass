@@ -1,0 +1,143 @@
+JAL 0 20
+CONST 2863311530
+NONE 18
+# Register 8 is A, 9 is B, etc.
+# A = 1 << 12 = 0x1000
+LUI 8 1
+# B = 21 << 12 = 0x15000
+AUIPC 9 0
+# C = 20 << 12 = 0x14000
+SUB 10 9 8
+# D = -81921 = 0xFFFEBFFF
+SUB 11 8 9
+# E = 0
+AND 12 10 11
+# F = -1
+OR 13 10 11
+# G = -1
+XOR 14 10 11
+# H = -2147483648 = 0x80000000 = INT_MIN
+SLLI 15 8 19
+# I = 0x14
+SRLI 16 10 12
+# J = -21 = 0xFFFFFFEB
+SRAI 17 11 12
+# K = 2147483647 = 0x7FFFFFFF = INT_MAX
+XORI 18 15 -1
+# L = 2147483643 = 0x7FFFFFFB = INT_MAX - 4
+ANDI 19 18 -5
+# M = -2147483643 = 0x80000005 = INT_MIN + 5
+ORI 20 15 5
+# N = 11 = 0x0000000B
+SLL 21 20 8
+# O = 1073741826 = 0x40000002
+SRL 22 20 8
+# P = -1073741822 = 0xC0000002
+SRA 23 20 8
+# 0
+SLT 24 22 23
+# 1
+SLT 25 23 22
+# 1
+SLTU 26 22 23
+# 0
+SLTU 27 23 22
+# 1
+SLTI 28 23 0
+# 0
+SLTI 29 22 0
+# 0
+SLTIU 30 23 0
+# 1
+SLTIU 31 8 2
+
+LB 2 0 1
+SB 2 0 2
+SH 2 0 3
+LBU 2 0 1
+SB 2 0 4
+SH 2 0 5
+LH 2 0 1
+SH 2 0 6
+SW 2 0 7
+LHU 2 0 1
+SH 2 0 8
+SW 2 0 9
+
+# Forever loop
+NOP 1
+JAL 0 -1
+
+# # for line in branch program copy, store line in memory at !branch
+# ADDI BP_SRC ZERO !copy
+# ADDI BP_DST ZERO !branch
+# ADDI BP_LEN ZERO 11
+
+# ADDI I ZERO 0
+# BEQ I BP_LEN 7
+# ADD ADDR BP_SRC I
+# LW TEMP ADDR 0
+# ADD ADDR BP_DST I
+# SW TEMP ADDR 0
+# ADDI I I 1
+# JAL ZERO -6
+
+# # Jump to !branch, store current address in x1
+# # JAL RETURN !branch
+
+
+# # store a copy of the branch program here
+# # !copy
+# # JALR 0 1
+# # BGEU 200 C B
+# # BGEU -5 B C
+# # ...
+# # ...
+# # ...
+# # ADDI A ZERO 1
+# # ADDI B ZERO 1
+# # ADDI C ZERO -1
+# # BEQ 200 B C
+# # BEQ -5 A B
+
+
+# # ERROR
+# # !branch
+# # A is 1, B is 1, C is -1
+# # Jump back to original program
+# # JALR 0 1
+# # ERROR
+# # if B >= C branch to !error
+# # BGEU 200 C B
+# # if C >= B branch backward 5 lines
+# # BGEU -5 B C
+# # ERROR
+# # if C < B branch to !error
+# # BLTU 200 C B
+# # if B < C branch backward 5 lines
+# # BLTU -5 B C
+# # ERROR
+# # if C >= B branch to !error
+# # BGE 200 C B
+# # if B >= C branch backward 5 lines
+# # BGE -5 B C
+# # ERROR
+# # if A < B branch to !error
+# # BLT 200 A B
+# # if C < B branch backward 5 lines
+# # BLT -5 C B
+# # ERROR
+# # if A != B branch to !error
+# # BNE 200 A B
+# # if B != C branch backward 5 lines
+# # BNE -5 B C
+# # ERROR
+# # ADDI A ZERO 1
+# # ADDI B ZERO 1
+# # ADDI C ZERO -1
+# # if B == C, branch to !error
+# # BEQ 200 B C
+# # if A == B, branch backward 5 lines
+# # BEQ -5 A B
+# # ERROR
+

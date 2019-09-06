@@ -1,0 +1,96 @@
+State Input Next Note
+BR    PSR   BR   
+00    000   00   Normal mode, paused
+00    001   10
+00    010   01
+00    011   11
+00    100   00
+00    101   10
+00    110   00
+00    111   10
+01    000   01   Normal mode, running
+01    001   11
+01    010   01
+01    011   11
+01    100   00
+01    101   10
+01    110   00
+01    111   10
+10    000   10   Boot mode, paused
+10    001   10
+10    010   11
+10    011   11
+10    100   10
+10    101   10
+10    110   10
+10    111   10
+11    000   11   Boot mode, running
+11    001   11
+11    010   11
+11    011   11
+11    100   10
+11    101   10
+11    110   10
+11    111   10
+
+Endianness is the layout in memory; risc-v uses little-endian, so the word 0x01234567 is laid out 0x67, 0x45, 0x23, 0x01 in increasing memory addresses.
+
+0C, arithmetic, 04 arithmetic immediate, 0D/05 LUI/AUIPC, 1B/19 JAL/JALR, 18 Branch, 00 Load, 08 Store, 03 FENCE, 1C SYSTEM
+
+NAME                                    OP       CODE  FORMAT  DECODE       EXECUTE MEMORY WRITE
+add 					ADD 	 0C    R       2xIN, 1xOUT  ADD	    nil	
+subtract 				SUB      0C    R       '     	    SUB	    '
+and 					AND	 0C    R       '	    AND	    '
+or 					OR	 0C    R       '	    OR	    '
+xor 					XOR	 0C    R       '	    XOR	    '
+add immediate 				ADDI	 04    I       1xIN, 1xOUT  ADD	    '
+and immediate 				ANDI	 04    I       '     	    AND	    '
+or immediate 				ORI	 04    I       '     	    OR	    '
+xor immediate				XORI	 04    I       '     	    XOR	    '
+shift left logical 			SLL	 0C    R       2xIN, 1xOUT  SLL	    '
+shift right logical 			SRL	 0C    R       '	    SRL	    '
+shift right arithmetic 			SRA	 0C    R       '	    SRA	    '
+shift left logical intermediate		SLLI	 04    I       1xIN, 1xOUT  SLL	    '
+shift right logical intermediate 	SRLI	 04    I       '     	    SRL	    '
+shift right arithmetic intermediate	SRAI	 04    I       '	    SRA	    '
+set less than 				SLT	 0C    R       2xIN, 1xOUT  COMP    '
+set less than unsigned 			SLTU	 0C    R       '	    COMP U  '
+set less than immediate 		SLTI	 0C    I       1xIN, 1xOUT  COMP    '
+set less than immediate unsigned 	SLTIU	 0C    I       '     	    COMP U  '
+load upper immediate                    LUI	 0D    U       1xOUT	    PASS A  '
+add upper immediate to program counter  AUIPC	 05    U       1xOUT	    ADD	    '
+jump and link 	       	       		JAL	 1B    J       1xOUT	    ADD	    '
+jump and link register 			JALR	 19    I       1xIN, 1xOUT  ADD	    '
+branch equal  				BEQ	 18    B       2xIN  	    COMP    '
+branch not equal 			BNE	 18    B       2xIN  	    COMP    '
+branch less than 			BLT	 18    B       2xIN  	    COMP    '
+branch greater than equal 		BGE	 18    B       2xIN  	    COMP    '
+branch less than unsigned 		BLTU	 18    B       2xIN  	    COMP U  '
+branch greater than equal unsigned  	BGEU	 18    B       2xIN  	    COMP U  '
+load byte      	    	  		LB	 00    I       1xIN, 1xOUT  ADD	    READ
+load halfword 				LH	 00    I       1xIN, 1xOUT  ADD	    READ
+load word 				LW	 00    I       1xIN, 1xOUT  ADD	    READ
+load byte unsigned 			LBU	 00    I       1xIN, 1xOUT  ADD	    READ
+load halfword unsigned 			LHU	 00    I       1xIN, 1xOUT  ADD	    READ
+store byte    				SB	 08    S       2xIN  	    ADD	    WRITE
+store halfword 				SH	 08    S       2xIN  	    ADD	    WRITE
+store word 				SW	 08    S       2xIN  	    ADD	    WRITE
+fence 					FENCE	 03
+execution call 				ECALL	 1C
+execution break 			EBREAK	 1C
+
+
+INSTR REG FETCH DECODE EXECUTE MEMORY NOTE
+0     r1  GO	/      /       /      Instruction 0 appears from memory
+4     r2  GO	0      /       /      In. 0 stored in DECODE register, In. 4 appears from memory
+1     1	  HOLD	4      0       /      In. 0 stored in EXECUTE register, In. 4 stored in DECODE register, In. 1 appears from memory, a HOLD is called for so that no new instructions appear
+1     1	  HOLD	/      0       /      In. 0 stored in EXECUTE register, DECODE register cleared
+1     1	  GO	/      /       0      In. 0 stored in MEMORY register, EXECUTE register cleared, In. 0 appears at register file address, EXECUTE results appear at register file input
+2     /	  GO	1      /       /      EXECUTE results stored in register file, In. 1 stored in DECODE register, register file read, In. 2 appears from memory
+3     /	  GO	/      1       /
+
+Modes
+Boot/Normal
+Pause/Start
+Hold/Go
+Error/Nominal
