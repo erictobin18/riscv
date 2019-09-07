@@ -3159,12 +3159,12 @@ b566b3,b54733,1341793,c55813,c5d893,fff7c913,ffb97993,57ea13,8a1ab3,8a5b33,808a5
           <string>INSTR DECODE</string>
         </entry>
       </elementAttributes>
-      <pos x="1040" y="980"/>
+      <pos x="1040" y="1000"/>
     </visualElement>
     <visualElement>
       <elementName>RV32I-Instruction-Decoder.dig</elementName>
       <elementAttributes/>
-      <pos x="1060" y="980"/>
+      <pos x="1060" y="1000"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -3286,12 +3286,12 @@ b566b3,b54733,1341793,c55813,c5d893,fff7c913,ffb97993,57ea13,8a1ab3,8a5b33,808a5
           <string>INSTR EXECUTE</string>
         </entry>
       </elementAttributes>
-      <pos x="1900" y="980"/>
+      <pos x="1880" y="1000"/>
     </visualElement>
     <visualElement>
       <elementName>RV32I-Instruction-Decoder.dig</elementName>
       <elementAttributes/>
-      <pos x="1920" y="980"/>
+      <pos x="1900" y="1000"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -3343,12 +3343,12 @@ b566b3,b54733,1341793,c55813,c5d893,fff7c913,ffb97993,57ea13,8a1ab3,8a5b33,808a5
           <string>INSTR MEMORY</string>
         </entry>
       </elementAttributes>
-      <pos x="2780" y="980"/>
+      <pos x="2780" y="1000"/>
     </visualElement>
     <visualElement>
       <elementName>RV32I-Instruction-Decoder.dig</elementName>
       <elementAttributes/>
-      <pos x="2800" y="980"/>
+      <pos x="2800" y="1000"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -4637,18 +4637,6 @@ b566b3,b54733,1341793,c55813,c5d893,fff7c913,ffb97993,57ea13,8a1ab3,8a5b33,808a5
       <p2 x="380" y="-340"/>
     </wire>
     <wire>
-      <p1 x="1040" y="980"/>
-      <p2 x="1060" y="980"/>
-    </wire>
-    <wire>
-      <p1 x="1900" y="980"/>
-      <p2 x="1920" y="980"/>
-    </wire>
-    <wire>
-      <p1 x="2780" y="980"/>
-      <p2 x="2800" y="980"/>
-    </wire>
-    <wire>
       <p1 x="1980" y="980"/>
       <p2 x="2000" y="980"/>
     </wire>
@@ -4829,11 +4817,23 @@ b566b3,b54733,1341793,c55813,c5d893,fff7c913,ffb97993,57ea13,8a1ab3,8a5b33,808a5
       <p2 x="420" y="-360"/>
     </wire>
     <wire>
+      <p1 x="2780" y="1000"/>
+      <p2 x="2800" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="1880" y="1000"/>
+      <p2 x="1900" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="1000"/>
+      <p2 x="1060" y="1000"/>
+    </wire>
+    <wire>
       <p1 x="1120" y="1000"/>
       <p2 x="1140" y="1000"/>
     </wire>
     <wire>
-      <p1 x="1980" y="1000"/>
+      <p1 x="1960" y="1000"/>
       <p2 x="2000" y="1000"/>
     </wire>
     <wire>
@@ -5095,6 +5095,10 @@ b566b3,b54733,1341793,c55813,c5d893,fff7c913,ffb97993,57ea13,8a1ab3,8a5b33,808a5
     <wire>
       <p1 x="1160" y="1020"/>
       <p2 x="1240" y="1020"/>
+    </wire>
+    <wire>
+      <p1 x="1960" y="1020"/>
+      <p2 x="1980" y="1020"/>
     </wire>
     <wire>
       <p1 x="2560" y="-220"/>
@@ -5875,6 +5879,10 @@ b566b3,b54733,1341793,c55813,c5d893,fff7c913,ffb97993,57ea13,8a1ab3,8a5b33,808a5
     <wire>
       <p1 x="1980" y="900"/>
       <p2 x="1980" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="1980" y="980"/>
+      <p2 x="1980" y="1020"/>
     </wire>
     <wire>
       <p1 x="960" y="180"/>
