@@ -94,3 +94,8 @@ Boot/Normal
 Pause/Start
 Hold/Go
 Error/Nominal
+
+
+(BOOT + R)*!BCO*!BC
+
+(RUN + S)*!P

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <circuit>
   <version>1</version>
-  <attributes/>
+  <attributes>
+    <entry>
+      <string>Width</string>
+      <int>11</int>
+    </entry>
+  </attributes>
   <visualElements>
     <visualElement>
       <elementName>In</elementName>
@@ -21,7 +26,7 @@
           <string>PC Enable</string>
         </entry>
       </elementAttributes>
-      <pos x="1000" y="140"/>
+      <pos x="1000" y="100"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -31,7 +36,7 @@
           <string>Memory Store</string>
         </entry>
       </elementAttributes>
-      <pos x="1000" y="200"/>
+      <pos x="1000" y="160"/>
     </visualElement>
     <visualElement>
       <elementName>In</elementName>
@@ -61,8 +66,55 @@
           <string>PC Incrementer Set PC</string>
         </entry>
       </elementAttributes>
-      <pos x="1000" y="260"/>
+      <pos x="1000" y="220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="940" y="160"/>
     </visualElement>
   </visualElements>
-  <wires/>
+  <wires>
+    <wire>
+      <p1 x="120" y="160"/>
+      <p2 x="540" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="160"/>
+      <p2 x="1000" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="160"/>
+      <p2 x="940" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="100"/>
+      <p2 x="1000" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="100"/>
+      <p2 x="520" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="520" y="220"/>
+      <p2 x="920" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="220"/>
+      <p2 x="1000" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="520" y="100"/>
+      <p2 x="520" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="160"/>
+      <p2 x="920" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="100"/>
+      <p2 x="540" y="160"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
 </circuit>

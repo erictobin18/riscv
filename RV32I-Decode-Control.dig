@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>Width</string>
+      <int>11</int>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes/>
+      <pos x="120" y="120"/>
+    </visualElement>
+  </visualElements>
+  <wires/>
+</circuit>
