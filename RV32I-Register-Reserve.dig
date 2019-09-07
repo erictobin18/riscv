@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <circuit>
   <version>1</version>
-  <attributes/>
+  <attributes>
+    <entry>
+      <string>Width</string>
+      <int>7</int>
+    </entry>
+  </attributes>
   <visualElements>
     <visualElement>
       <elementName>Register</elementName>
@@ -253,6 +258,34 @@
       </elementAttributes>
       <pos x="120" y="420"/>
     </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>E</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>5</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1180" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>O</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>5</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1180" y="300"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -274,6 +307,10 @@
     <wire>
       <p1 x="580" y="200"/>
       <p2 x="740" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="740" y="200"/>
+      <p2 x="1180" y="200"/>
     </wire>
     <wire>
       <p1 x="260" y="520"/>
@@ -394,6 +431,10 @@
     <wire>
       <p1 x="360" y="300"/>
       <p2 x="380" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="300"/>
+      <p2 x="1180" y="300"/>
     </wire>
     <wire>
       <p1 x="560" y="300"/>

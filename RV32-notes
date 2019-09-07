@@ -96,6 +96,8 @@ Hold/Go
 Error/Nominal
 
 
-(BOOT + R)*!BCO*!BC
+Normal = !R*(NORMAL + BC + BCO)
 
-(RUN + S)*!P
+Start = (RUN + S)*!P*!BC*!BCO
+
+GO = !HOLD + !NORMAL
