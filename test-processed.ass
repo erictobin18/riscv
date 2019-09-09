@@ -4,11 +4,11 @@ NONE 18
 # Register 8 is A, 9 is B, etc.
 # A = 1 << 12 = 0x1000
 LUI 8 1
-# B = 21 << 12 = 0x15000
+# B = 21 = 0x00015
 AUIPC 9 0
-# C = 20 << 12 = 0x14000
+# C = -4081 = FFFFF015
 SUB 10 9 8
-# D = -81921 = 0xFFFEBFFF
+# D = 4081 = 0x00000FEB
 SUB 11 8 9
 # E = 0
 AND 12 10 11

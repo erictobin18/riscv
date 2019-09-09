@@ -410,20 +410,6 @@
       <pos x="-240" y="540"/>
     </visualElement>
     <visualElement>
-      <elementName>Add</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Label</string>
-          <string>SUB</string>
-        </entry>
-        <entry>
-          <string>Bits</string>
-          <int>32</int>
-        </entry>
-      </elementAttributes>
-      <pos x="-240" y="240"/>
-    </visualElement>
-    <visualElement>
       <elementName>Driver</elementName>
       <elementAttributes>
         <entry>
@@ -822,6 +808,20 @@
       <elementName>PullDown</elementName>
       <elementAttributes/>
       <pos x="-180" y="720"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Sub</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>SUB</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-240" y="240"/>
     </visualElement>
   </visualElements>
   <wires>
