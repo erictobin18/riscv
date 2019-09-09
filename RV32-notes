@@ -57,9 +57,10 @@ PC: 05, 1B, 18
 B: R2, I
 R2: 0C
 I: !0C
-OUT: rd, PC, M
+OUT: rd, PC, PC if C, M, C
 rd: 0C, 04, 0D, 05
-PC: 1B, 19, 18
+PC: 1B, 19
+PC if C: 18
 M: 00, 08
 
 NAME                                    OP       CODE  FORMAT  DECODE       EXECUTE	     MEMORY WRITE
@@ -122,3 +123,4 @@ Error/Nominal
 
 PC SET INC = GO*!ALU
 PC STALL = !GO*!ALU
+

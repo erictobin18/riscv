@@ -12,7 +12,7 @@ command_types = {'ADD':'R', 'SUB':'R', 'AND':'R', 'OR':'R', 'XOR':'R',
                  'SB':'S', 'SH':'S', 'SW':'S',
                  'NOP':'C', 'CONST':'C', 'NONE':'C'}
 
-command_bits = {'ADD':[51,0,0], 'SUB':[51,0,64],
+command_bits = {'ADD':[51,0,0], 'SUB':[51,0,32],
                 'AND':[51,7,0], 'OR':[51,6,0], 'XOR':[51,4,0],
                 'ADDI':[19,0], 'ANDI':[19,7], 'ORI':[19,6], 'XORI':[19,4],
                 'SLL':[51,1,0], 'SRL':[51,5,0], 'SRA':[51,5,64],
@@ -63,6 +63,7 @@ def main():
     code = []
                    
     for l in lines:
+        print(l)
         if l[0] == 'CONST':
             code.append(hex(int(l[1]))[2:])
             continue
