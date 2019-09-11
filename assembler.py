@@ -152,6 +152,7 @@ def main():
         for l in code:
             f.write(l)
             f.write('\n')
+            f.write('0\n')
     l = len(code)
     print(str(l) + ' = ' + str(hex(l)) + ' program lines written!')
 

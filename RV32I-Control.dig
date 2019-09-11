@@ -15,6 +15,10 @@
           <string>Label</string>
           <string>Boot/Normal</string>
         </entry>
+        <entry>
+          <string>Default</string>
+          <long>1</long>
+        </entry>
       </elementAttributes>
       <pos x="600" y="-20"/>
     </visualElement>
