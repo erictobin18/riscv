@@ -1,4 +1,5 @@
 # -*- mode: gitignore; -*-
+code/old
 *~
 \#*\#
 __pycache__
